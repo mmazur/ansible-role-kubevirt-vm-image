@@ -19,7 +19,6 @@
 | annotations     | | |
 | source          | | |
 | storage_class   | | |
-| type            | pvc            | |
 
 ## Examples
 
@@ -27,7 +26,6 @@
 ---
 - name: Create 
   hosts: localhost
-  connections: local
 
   vars:
     kubevirt_image_volumes:

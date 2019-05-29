@@ -1,0 +1,13 @@
+- name: Create PVCs
+  kubevirt_pvc:
+    state: "{{ item.state | default('present') }}"
+    name: "{{ item.name | mandatory }}"
+    namespace: "{{ item.namespace | default('default') }}"
+    size: "{{ item.size | default(omit) }}"
+    wait: "{{ item.wait | default(omit) }}"
+    labels: "{{ item.labels | default(omit) }}"
+    annotations: "{{ item.annotations | default(omit) }}"
+    storage_class_name: "{{ item.storage_class | default(omit) }}"
+    access_modes:
+      - ReadWriteOnce
+
