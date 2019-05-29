@@ -10,15 +10,17 @@
 
 ### Volume spec
 
-| Name            | Default        | Description |
-| --------------- | -------------- | ----------- |
-| name            | | |
-| namespace       | | |
-| size            | | |
-| labels          | | |
-| annotations     | | |
-| source          | | |
-| storage_class   | | |
+| Name            | Default | Req | Description |
+| --------------- | --------| --- | ----------- |
+| name            | UNDEF   |  Y  | Name of volume to be created |
+| namespace       | UNDEF   |  Y  | Namespace to create the volume in |
+| size            | UNDEF   |     | How much storage space to allocate |
+| source          | blank   |     | What to initialize the volume with (see examples) |
+| labels          | UNDEF   |     | Labels to be assigned to the resulting object |
+| annotations     | UNDEF   |     | Annotations to be assigned to the resulting object |
+| storage_class   | UNDEF   |     | Storage class name |
+| wait            | yes     |     | Whether to wait for the volume to initialize |
+| wait_timeout    | 300     |     | How long to wait for, while the volume initializes (in seconds) |
 
 ## Examples
 
@@ -44,9 +46,12 @@
         size: 100Mi
         source: "/tmp/disk.qcow2"
 
+      - name: volume4-empty
+        namespace: default
+        size: 100Mi
+
   roles:
     - kubevirt.vm_image
-
 ```
 
 
