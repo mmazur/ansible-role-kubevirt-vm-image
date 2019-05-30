@@ -19,7 +19,7 @@
 | labels          | UNDEF   |     | Labels to be assigned to the resulting object |
 | annotations     | UNDEF   |     | Annotations to be assigned to the resulting object |
 | storage_class   | UNDEF   |     | Storage class name |
-| wait            | yes     |     | Whether to wait for the volume to initialize |
+| wait            | no      |     | Whether to wait for the volume to initialize |
 | wait_timeout    | 300     |     | How long to wait for, while the volume initializes (in seconds) |
 
 ## Examples
